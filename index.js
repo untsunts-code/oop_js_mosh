@@ -52,3 +52,22 @@ function increase_obj(obj){
 	obj.value++;
 }
 console.log(obj);	// the value inside the object obj was changed because obj.value++ was referencing to the same object as obj
+
+// Adding and Removing properties
+
+circle1.location = {x: 1};
+console.log(circle1);
+
+//another way of adding properties is using the bracket location
+circle2['location'] = { x: 1};
+console.log(circle2);
+
+// this becomes useful when accessing properties by holders or propertynames
+cons propertyName = 'location'
+console.log(circle2[propertyName])
+// or when the name of the property has invalid syntax for using with the dot method
+cons propertyName2 = 'center-location'
+
+// deleting properties is pretty direct and can be useful when sharing objects with sensible info
+delete circle1.location
+delete circle2['location']
