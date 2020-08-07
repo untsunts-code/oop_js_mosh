@@ -71,3 +71,15 @@ cons propertyName2 = 'center-location'
 // deleting properties is pretty direct and can be useful when sharing objects with sensible info
 delete circle1.location
 delete circle2['location']
+
+//Enumerating Properties
+for(let key in circle1){	// use a for loop to iterate through the keys of an object (properties and methods)
+	if(typeof circle1[key]!=='function')	// the typeof function lets you check types of objects
+		console.log(key, circle1[key]);
+}
+
+const keys = Object.keys(circle1);	// the Object object has the keys method, which lets you check which keys are in any object
+console.log(keys);
+
+if('radius' in circle1)			// the 'in' operator checks if a value is in an array
+	console.log('Circle has a radius.')
