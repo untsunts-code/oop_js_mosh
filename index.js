@@ -82,4 +82,4 @@ const keys = Object.keys(circle1);	// the Object object has the keys method, whi
 console.log(keys);
 
 if('radius' in circle1)			// the 'in' operator checks if a value is in an array
-	console.log('Circle has a radius.')
+	console.log('Circle has a radius.');
