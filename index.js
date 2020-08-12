@@ -83,3 +83,25 @@ console.log(keys);
 
 if('radius' in circle1)			// the 'in' operator checks if a value is in an array
 	console.log('Circle has a radius.');
+
+//Private properties + Getters
+function Circle2(radius){
+	this.radius = radius;
+	
+	let defaultLocation = {x: 0, y: 0}; // By defining locally a function inside our constructor function, we create properties that could be seen as private (given that we wont be able to access them from the outside of the function
+
+	this.getDefaultLocation = function(){  // We can create a method that lets us "read" those private properties, that way we can "get" them from the outside without being able to change them.
+		return defaultLocation;
+	}
+
+	this.draw = function(){
+		console.log('draw');
+	}
+
+}
+
+const circle4 = new Circle2(10);
+circle4.draw();
+console.log(circle4.getDefaultLocation());
+
+
