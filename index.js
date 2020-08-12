@@ -104,4 +104,33 @@ const circle4 = new Circle2(10);
 circle4.draw();
 console.log(circle4.getDefaultLocation());
 
+// Private properties + Getters 2 + Setters
+function Circle3(radius){
+	this.radius = radius;
+
+	this.draw = function(){
+		console.log('draw');
+	};
+
+	let defaultLocation = { x: 0, y:0 };
+
+	Object.defineProperty(this, 'defaultLocation', {  // this is a safe way to "get"(read) and "set"(change) values from our private properties, if we only define a get function, our property will only be a 'read only' property
+		get : function() {    // this function lets us read the property in the second argument from the outside of our function
+			return defaultLocation;
+		},
+		set : function(value) {  // one interesting thing about defining setters is that, given that they are functions, we can add certain functionality to those methods (like verifying data before we change the values of our properties)
+			
+			if(!value.x || !value.y)
+				throw new Error('Invalid location.');  // Error objects will come in handy to avoid mistakes from user inputs or letting us know where something is going wrong, use them
+
+			defaultLocation = value;
+		}
+	});
+}
+
+
+const cirlce5 = Circle3(15);
+console.log(circle.defaultLocation);	// thanks to the get method
+circle.defaultLocation = 1;		// this will throw an error thanks to the set method
+
 
